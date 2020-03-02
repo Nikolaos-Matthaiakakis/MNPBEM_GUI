@@ -1,0 +1,1 @@
+For user defined structure please fill in the strInitUser function file
