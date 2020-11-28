@@ -58,7 +58,7 @@ elseif typeStr==1 %  Nanodisk
             p1 = shift( p, [ -d_length/2-shift_l/2 , 0, 0 ] );
             p2 = shift( p, [ d_length/2+shift_l/2, 0, 0 ] );
             if qd_en==1 && Source_op==3
-                p3t=trisphere( grid_1, 15, 'interp', 'curv' );
+                p3t = trisphere( grid_1, 15, 'interp', 'curv' );
                 p3 = shift( p3t, [ dip_p(1), dip_p(2), dip_p(3)] );
                 p = comparticle( epstab, { p1, p2, p3 }, [ 2, 1; 3, 1; 4, 1 ], 1, 2, op );
             else

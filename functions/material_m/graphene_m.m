@@ -77,13 +77,13 @@ for ji=1:1:max(length(Ef)) % calculation of the optical conductivity, permitivvi
         cond_gi(ji,:)=((4*Ef(ji))* (e^2/(4*h_plank))./(h_plank*omega*pi)*(1-2*Ef(ji)^2/(9*t^2))-(1+(h_plank*omega).^2/(36*t^2))* e^2/(4*h_plank)/pi.*log(abs(h_plank*omega+2*Ef(ji))./abs(h_plank*omega-2*Ef(ji))))/(e^2/h_plank); % imaginary part of conductivity
         cond_g(ji,:)=cond_gr(ji,:)+cond_gi(ji,:)*1i; %e^2/h_plank
         %perm(ji,:)=(5.5+(1i*cond_g(ji,:)*(e^2/h_plank)./(dgr*omega))*7.05*10^29); % permittivity, 7.05*10^29 is the convertion number from e^2/h_plank to S over the permittivity of vacuum
-        perm(ji,:)=(5.5/(dgr/(0.34*10^-9))+(1i*cond_g(ji,:)*(e^2/h_plank)./(dgr*omega))*7.05*10^29); % permittivity, 7.05*10^29 is the convertion number from e^2/h_plank to S over the permittivity of vacuum
+        perm(ji,:)=(5.5+(1i*cond_g(ji,:)*(e^2/h_plank)./(dgr*omega))*7.05*10^29); % permittivity, 7.05*10^29 is the convertion number from e^2/h_plank to S over the permittivity of vacuum
     else 
         cond_gi(ji,:)=( 1i*e^2/(4*pi*h_plank)  *  log(  (2*abs(Ef(ji))-h_plank*omega-1i*Gama)  ./  (2*abs(Ef(ji))+h_plank*omega+1i*Gama)  ))/(e^2/h_plank);
         cond_gr(ji,:)=( 1i*e^2./(pi*h_plank*(h_plank*omega+1i*Gama))  .*  (Ef(ji)+2*k*T*log(exp(-Ef(ji)/(k*T))+1)))/(e^2/h_plank);
         cond_g(ji,:)=(cond_gr(ji,:)+cond_gi(ji,:));  %e^2/h_plank
         %perm(ji,:)=(5.5+(1i*cond_g(ji,:)*(e^2/h_plank)./(dgr*omega))*7.05*10^29); % permittivity, 7.05*10^29 is the convertion number from e^2/h_plank to S over the permittivity of vacuum
-        perm(ji,:)=(5.5/(dgr/(0.34*10^-9))+(1i*cond_g(ji,:)*(e^2/h_plank)./(dgr*omega))*7.05*10^29); % permittivity, 7.05*10^29 is the convertion number from e^2/h_plank to S over the permittivity of vacuum
+        perm(ji,:)=(5.5+(1i*cond_g(ji,:)*(e^2/h_plank)./(dgr*omega))*7.05*10^29); % permittivity, 7.05*10^29 is the convertion number from e^2/h_plank to S over the permittivity of vacuum
     end
     %perm(ji,:)=(5.5+(1i*cond_g(ji,:)*(e^2/h_plank)./(dgr*omega))*7.05*10^29); % permittivity, 7.05*10^29 is the convertion number from e^2/h_plank to S over the permittivity of vacuum
     permlorenrz(ji,:)=FL*EL^2./((EL^2-(h_plank*omega).^2).^2+GL^2.*(h_plank*omega).^2).*((EL^2-(h_plank*omega).^2)+1i*GL.*h_plank*omega); % Lorentz term

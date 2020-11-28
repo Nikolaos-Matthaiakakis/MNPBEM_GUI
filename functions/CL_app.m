@@ -77,27 +77,39 @@ tic % Timer on
     %% Main program
 
     %% Init
-    %% BEM initialization
-    op = BEMInit(BEM_op, neg, intPoint, dIntPoint, Relcut);
-
-    %% Detector Init
-    [spec,spec_s] = detInit(op,BEM_op,d_angle1,d_range1,d_angle2,detQ,detRad);
-
+    
     %% Refractive index Init
     epstab = refInit(Double_en,Cover_en, eps_env, eps_part, eps_str, eps_part2, eps_p, eps_list_en, eps_list_en2, substrate, substrate2, eps_p2, eps_part3, eps_list_en3, Source_op, qd_en);
 
+    %% BEM initialization
+    op = BEMInit(BEM_op, neg, intPoint, dIntPoint, Relcut);   
+    
     %% Beam Init
     [width, vel, enei2, impact, xx, yy, xe, ~] = beamInit( width_d, e_beam, ene2, Double_en, d_length, res_map, XYField, shift_l);
 
     %% Selection of nanostructure
-    if typeStr==11 % User defined
-        p = strInitUser(typeStr, Double_en, d_length, edge_profile, Cover_en, epstab, op, ax_el, d_c, shift_l, d_length2, d_length3, angles_n, grid_1, grid_2, hdata, substrate, sub_t, substrate2, sub_t2, xtilt, ytilt, ztilt, dip_p, Source_op, qd_en);
-    else
+    if typeStr==11 % User defined  
+        if substrate==1
+            [p, op, exc_flag, bem_tmp] = strInitUser_Al_comp(typeStr, Double_en, d_length, edge_profile, Cover_en, epstab, op, ax_el, d_c, shift_l, d_length2, d_length3, angles_n, grid_1, grid_2, hdata, substrate, sub_t, substrate2, sub_t2, xtilt, ytilt, ztilt, dip_p, Source_op, qd_en, ene2, Field_en, xe, xe);
+        else
+            [p, op] = strInitUser(typeStr, Double_en, d_length, edge_profile, Cover_en, epstab, op, ax_el, d_c, shift_l, d_length2, d_length3, angles_n, grid_1, grid_2, hdata, substrate, sub_t, substrate2, sub_t2, xtilt, ytilt, ztilt, dip_p, Source_op, qd_en);
+        end
+        epstab=p.eps;
+    else % GUI
         p = strInit(typeStr, Double_en, d_length, edge_profile, Cover_en, epstab, op, ax_el, d_c, shift_l, d_length2, d_length3, angles_n, grid_1, grid_2, hdata, substrate, sub_t, substrate2, sub_t2, xtilt, ytilt, ztilt, dip_p, Source_op, qd_en);
     end
-    %%  BEM solution 
-    [bem, exc, exc_CL, exc_CL_M, exc_EELS_M]= BEMSolver(p, op, pw_pol, imp,impact,imp_spec, width, vel, Source_op, dip_p, dip_d, d_range2a);
 
+    %% Detector Init
+    [spec,spec_s] = detInit(op,BEM_op,d_angle1,d_range1,d_angle2,detQ,detRad);
+    
+    %%  BEM solution 
+    if exist('exc_flag','var')% Check for user defined excitation      
+        exc=exc_flag;
+        exc_CL=exc_flag;
+        bem=bem_tmp;
+    else
+        [bem, exc, exc_CL, exc_CL_M, exc_EELS_M]= BEMSolver(p, op, pw_pol, imp,impact,imp_spec, width, vel, Source_op, dip_p, dip_d, d_range2a);
+    end
         %%  Plasmonic Eigenmodes
     if BEM_op==1
         eigens(BEM_op, p, neg, op, bem)
