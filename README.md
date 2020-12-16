@@ -1,4 +1,4 @@
-![Logo](https://github.com/Nikolaos-MAtthaiakakis/MNPBEM_GUI/blob/master/extra_tools/MNPBEM_GUI_resources/icon48.jpg?raw=true)
+![Logo](https://github.com/Nikolaos-MAtthaiakakis/MNPBEM_GUI/blob/master/extra_tools/MNPBEM_GUI_resources/icon_48.png?raw=true)
 
 # MNPBEM-GUI
 GUI for MNPBEM with extended functionality 
@@ -15,4 +15,4 @@ To avoid pathing errors, once downloaded, rename the MNPBEM_GUI-master folder to
 
 The results calculated with MNPBEM GUI have been tested against experimental results and also against the default MNPBEM simulation tool and have been found to have excellent agreement. Nevertheless, the user should make sure that the results of their simulation are correct. Any error is of no responsibility of the GUI author.
 
-![GUI preview image](https://github.com/Nikolaos-MAtthaiakakis/MNPBEM_GUI/blob/master/extra_tools/MNPBEM_GUI_resources/GUI.jpg?raw=true)
+![GUI preview image](https://github.com/Nikolaos-MAtthaiakakis/MNPBEM_GUI/blob/master/extra_tools/MNPBEM_GUI_resources/GUI.png?raw=true)
