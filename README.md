@@ -1,4 +1,4 @@
-![Logo](https://github.com/Nikolaos-MAtthaiakakis/MNPBEM_GUI/blob/master/extra_tools/MNPBEM_GUI_resources/graph.jpg?raw=true)
+![Logo](https://github.com/Nikolaos-MAtthaiakakis/MNPBEM_GUI/blob/master/extra_tools/MNPBEM_GUI_resources/icon48.jpg?raw=true)
 
 # MNPBEM-GUI
 GUI for MNPBEM with extended functionality 
