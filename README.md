@@ -16,4 +16,4 @@ The results calculated with MNPBEM GUI have been tested against experimental res
 
 The MNPBEM17 folder contains the official MNPBEM files as found in http://physik.uni-graz.at/mnpbem/ and is not my own code.
 
-![GUI preview image](https://github.com/Nikolaos-MAtthaiakakis/MNPBEM_GUI/blob/GUI.jpg?raw=true)
+![GUI preview image](https://github.com/Nikolaos-MAtthaiakakis/MNPBEM_GUI/blob/master/GUI.jpg?raw=true)
