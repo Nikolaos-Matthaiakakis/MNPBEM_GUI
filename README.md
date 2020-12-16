@@ -15,3 +15,5 @@ This is a first release of the GUI so further improvements will be included in f
 The results calculated with MNPBEM GUI have been tested against experimental results and also against the default MNPBEM simulation tool and have been found to have excellent agreement. Nevertheless, the user should make sure that the results of their simulation are correct. Any error is of no responsibility of the GUI author.
 
 The MNPBEM17 folder contains the official MNPBEM files as found in http://physik.uni-graz.at/mnpbem/ and is not my own code.
+
+![GUI preview image](https://github.com/ Nikolaos-MAtthaiakakis/MNPBEM_GUI/blob/GUI.jpg?raw=true)
