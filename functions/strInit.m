@@ -138,6 +138,8 @@ elseif typeStr==2 %  Nanotriangle
                     p = comparticle( epstab, { p }, [ 2, 1 ], 1, op );
                 end        
             end
+        else
+            p = comparticle( epstab, { p }, [ 2, 1 ], 1, op );     
         end
     else
         poly = round( polygon( 3, 'size',[ d_length,  2 / sqrt( 3 ) * d_length ] )); %  Polygon for disk
