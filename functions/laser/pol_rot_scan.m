@@ -1,6 +1,6 @@
 function pol_rot_scan(p, ene2, enei2, spec_s, exc, bem)
     multiWaitbar( 'Polarization rotation scan', 0, 'Color', 'g', 'CanCancel', 'on' ); %  Loop over wavelengths 
-    step=5;        
+    step=1;        
     for ien = 1 : length( enei2 )            
         drawnow() % Reads new inputs
         cancelRun() % Cancel function                    
