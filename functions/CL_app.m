@@ -73,6 +73,10 @@ tic % Timer on
     dip_p=[dip_x dip_y dip_z ];
     %-------------------------% 
     d_range2=degtorad(d_range2a); % light polarization
+    %-------------------------% 
+    jones_pw=[jones_x jones_y jones_z ];
+    dir_pw=[dir_x dir_y dir_z ];
+    %-------------------------% 
     
     %% Main program
 
@@ -108,7 +112,7 @@ tic % Timer on
         exc_CL=exc_flag;
         bem=bem_tmp;
     else
-        [bem, exc, exc_CL, exc_CL_M, exc_EELS_M]= BEMSolver(p, op, pw_pol, imp,impact,imp_spec, width, vel, Source_op, dip_p, dip_d, d_range2a);
+        [bem, exc, exc_CL, exc_CL_M, exc_EELS_M]= BEMSolver(p, op, pw_pol, imp,impact,imp_spec, width, vel, Source_op, dip_p, dip_d, d_range2a,jones_pw,dir_pw);
     end
         %%  Plasmonic Eigenmodes
     if BEM_op==1
