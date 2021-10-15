@@ -19,10 +19,12 @@ function [bem, exc, exc_CL, exc_CL_M, exc_EELS_M]= BEMSolver(p, op, pw_pol, imp,
             exc_CL=planewave( [ x_pol, y_pol, 0 ], [ 0, 0, 1], op ); %  rotation pol
         end
         %------------- Polarization rotation
-        for i=1:1:180
+        j=1;
+        for i=-90:1:90
             x_pol=cos(deg2rad(i));
             y_pol=sin(deg2rad(i)); 
-            pol_m(i,:)=[x_pol, y_pol, 0];
+            pol_m(j,:)=[x_pol, y_pol, 0];
+            j=j+1;
         end
         exc = planewave( pol_m, [ 0, 0, 1], op );
         exc_CL_M=0;
