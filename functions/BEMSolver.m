@@ -14,38 +14,14 @@ function [bem, exc, exc_CL, exc_CL_M, exc_EELS_M]= BEMSolver(p, op, pw_pol, imp,
         elseif pw_pol==3
             exc_CL=planewave( [ 0.5, 0.5, 0 ], [ 0, 0, 1], op ); %  s pol
         elseif pw_pol==4
-            if d_range2a<-45
-                x_pol=(90-abs(d_range2a))/45/2;
-                y_pol=-1+x_pol;
-            elseif d_range2a<0
-                y_pol=d_range2a/45/2;
-                x_pol=1-abs(y_pol);                
-            elseif abs(d_range2a)<=45                
-                y_pol=d_range2a/45/2;
-                x_pol=1-y_pol;
-            elseif abs(d_range2a)>45
-                x_pol=(90-abs(d_range2a))/45/2;
-                y_pol=1-x_pol;     
-            end
+            x_pol=cos(deg2rad(d_range2a));
+            y_pol=sin(deg2rad(d_range2a));  
             exc_CL=planewave( [ x_pol, y_pol, 0 ], [ 0, 0, 1], op ); %  rotation pol
         end
         %------------- Polarization rotation
-        j=-90;
-        for i=1:1:37
-            if j<-45
-                x_pol=(90-abs(j))/45/2;
-                y_pol=-1+x_pol;
-            elseif j<0
-                y_pol=j/45/2;
-                x_pol=1-abs(y_pol);                
-            elseif abs(j)<=45                
-                y_pol=j/45/2;
-                x_pol=1-y_pol;
-            elseif abs(j)>45
-                x_pol=(90-abs(j))/45/2;
-                y_pol=1-x_pol;     
-            end
-            j=j+5;
+        for i=1:1:180
+            x_pol=cos(deg2rad(i));
+            y_pol=sin(deg2rad(i)); 
             pol_m(i,:)=[x_pol, y_pol, 0];
         end
         exc = planewave( pol_m, [ 0, 0, 1], op );
