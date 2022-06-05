@@ -15,4 +15,9 @@ To avoid pathing errors, once downloaded, rename the MNPBEM_GUI-master folder to
 
 The results calculated with MNPBEM GUI have been tested against experimental results and also against the default MNPBEM simulation tool and have been found to have excellent agreement. Nevertheless, the user should make sure that the results of their simulation are correct. Any error is of no responsibility of the GUI author.
 
+MNPBEM GUI is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
 ![GUI preview image](https://github.com/Nikolaos-MAtthaiakakis/MNPBEM_GUI/blob/master/extra_tools/MNPBEM_GUI_resources/GUI.jpg?raw=true)
