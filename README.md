@@ -3,8 +3,7 @@
 # MNPBEM-GUI
 GUI for MNPBEM with extended functionality 
 
-Requires matlab (and Phased array system toolbox for certain functions). The MNPBEM17 folder is included 
-as found in http://physik.uni-graz.at/mnpbem/ and does not contain my own code.
+Requires matlab (and Phased array system toolbox for certain functions). 
 
 When using MNPBEM GUI please reference the work according to http://physik.uni-graz.at/mnpbem/ 
 and acknowledge the use of the MNPBEM-GUI and the GUI author's code (Nikolaos Matthaiakakis) in the acknowledgement section.
